@@ -63,6 +63,19 @@ Your Symfony/AngularJS app is now secured.
 
 * [DunglasTodoMVCBundle](https://github.com/dunglas/DunglasTodoMVCBundle): an implementation of the TodoMVC app using Symfony, Backbone.js and Chaplin.js
 
+### Usage with AngularJS
+
+To set the $http.defaults.headers on application load, add a run block:
+
+```javascript
+
+App.run(["$http", "$cookies" function($http, $cookies) {
+    $http.defaults.headers['X-XSRF-TOKEN'] = $cookies['XSRF-TOKEN'];
+}]);
+```
+
+Note: You need to use the ngCookies service (https://docs.angularjs.org/api/ngCookies/service/$cookies) for this example to work.
+
 ## Full configuration
 
 ```yaml
